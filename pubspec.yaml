@@ -65,6 +65,7 @@ flutter:
     - assets/Images/logo2.png
     - assets/Images/platform2.jpg
     - assets/Images/netflix_logo.webp
+    - assets/Images/Netflix_2015_N_logo (1).webp
   fonts:
     - family: NetflixSansRegular
       fonts:

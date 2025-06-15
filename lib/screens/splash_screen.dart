@@ -22,7 +22,6 @@ class _SplashScreenState extends State<SplashScreen>
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _controller.forward();
-    //  _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
     Timer(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const SelectScreen()),
@@ -31,7 +30,24 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: FadeTransition(
+        opacity: _animation,
+        child: Center(
+          child: Image.asset(
+            'assets/Images/Netflix_2015_N_logo (1).webp',
+            width: 200,
+          ),
+        ),
+      ),
+    );
   }
 }
